@@ -315,7 +315,7 @@ return [
             'type' => 'sidebar-menu-search',
             'text' => 'Buscar',
         ],
-        
+
         [
             'text' => 'Inicio',
             'route' => 'admin.home.index',
@@ -341,11 +341,31 @@ return [
             'route' => 'admin.persona.index',
             'icon' => 'fas fa-users',
         ],
+        [
+            'text' => 'Nacionalidades',
+            'route' => 'admin.nacionalidad.index',
+            'icon' => 'fas fa-users',
+        ],
+        [
+            'text' => 'Editoriales',
+            'route' => 'admin.editorial.index',
+            'icon' => 'fas fa-users',
+        ],
+        [
+            'text' => 'Autores',
+            'route' => 'admin.autor.index',
+            'icon' => 'fas fa-users',
+        ],
+        [
+            'text' =>'Categorias',
+            'route'=>'admin.categoria.index',
+            'icon'=>'fas fa-users'
+        ],
         // [
         // 'text' => 'Configuraciones',
         // 'icon' => 'fas fa-cog',
         //     'submenu' => [
-                
+
         //     ],
         // ],
     ],

@@ -45,20 +45,20 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Unidad de programas</label>
+                        <label for="dni">DNI</label>
+                        <input type="text" class="form-control" name="dni" id='dni' placeholder="Escriba su dni" autocomplete="off" required >
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Programa de estudio</label>
                             <select class="form-control" name="programa_id" required>
                                 <option selected disabled>Seleccione una opción</option>
                                 @foreach ($programa as $programas)
                                     <option value="{{ $programas->id }}">{{ $programas->nombre_programa }}</option>
                                 @endforeach
-                            </select> 
-                    </div>  
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="dni">DNI</label>
-                        <input type="text" class="form-control" name="dni" id='dni' placeholder="Escriba su dni" autocomplete="off" required > 
-                    </div>  
+                            </select>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -107,7 +107,7 @@
                             </td>
                         </tr>
                         <!-- Modal de edición -->
-                        {{-- <div class="modal fade" id="editModal{{ $personas->id }}" tabindex="-1" role="dialog" aria-labelledby="editModal{{ $personas->id }}Label" aria-hidden="true">
+                        <div class="modal fade" id="editModal{{ $personas->id }}" tabindex="-1" role="dialog" aria-labelledby="editModal{{ $personas->id }}Label" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -121,12 +121,24 @@
                                         <div class="modal-body">
                                             <!-- Campos del formulario de edición -->
                                             <div class="form-group">
+                                                <label for="dni{{ $personas->id }}">DNI</label>
+                                                <input type="text" class="form-control" name="dni" id="dni{{ $personas->id }}" value="{{ $personas->dni}}">
+                                            </div>
+                                            <div class="form-group">
                                                 <label for="nombres{{ $personas->id }}">Nombre</label>
                                                 <input type="text" class="form-control" name="nombres" id="nombres{{ $personas->id }}" value="{{ $personas->nombres}}" oninput="this.value = this.value.toUpperCase();">
                                             </div>
                                             <div class="form-group">
                                                 <label for="apellidos{{ $personas->id }}">Apellidos</label>
                                                 <input type="text" class="form-control" name="apellidos" id="apellidos{{ $personas->id }}" value="{{ $personas->apellidos}}" oninput="this.value = this.value.toUpperCase();">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="programa_id{{ $personas->id }}">Programa de estudio</label>
+                                                <select class="form-control" name="programa_id" id="programa_id{{ $personas->id }}">
+                                                    @foreach ($programa as $programas)
+                                                        <option value="{{ $programas->id }}" {{ $personas->programa_id == $programas->id ? 'selected' : '' }}>{{ $programas->nombre_programa }}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -137,7 +149,7 @@
                                     </form>
                                 </div>
                             </div>
-                        </div> --}}
+                        </div>
                     @endforeach
                 </tbody>
             </table>

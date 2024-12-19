@@ -88,6 +88,12 @@ class ProgramaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $programas = programa::findOrFail($id);
+        $programas->delete();
+        if ($programas){
+            return redirect()->route('admin.programa.index')->with('success', 'La programa fue eliminado correctamente.');
+        } else {
+            return redirect()->back()->withErrors('No se elimino correctamente la programa:' . $programas->getMessage());
+        }
     }
 }

@@ -69,7 +69,23 @@ class PersonaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData  = $request->validate([
+            'dni'=>'required',
+            'nombres' => 'required',
+            'apellidos' => 'required',
+            'programa_id' => 'required',
+        ]);
+        $personas = persona::findOrFail($id);
+        $personas->dni = $validatedData['dni'];
+        $personas->nombres = $validatedData['nombres'];
+        $personas->apellidos = $validatedData['apellidos'];
+        $personas->programa_id = $validatedData['programa_id'];
+        $personas->save();
+        if ($personas){
+            return redirect()->route('admin.persona.index')->with('success', 'La persona fue actualizado correctamente.');
+        } else {
+            return redirect()->back()->withErrors('No se actualizo correctamente la persona:' . $personas->getMessage());
+        }
     }
 
     /**
@@ -77,6 +93,12 @@ class PersonaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $personas = persona::findOrFail($id);
+        $personas->delete();
+        if ($personas){
+            return redirect()->route('admin.persona.index')->with('success', 'La persona fue eliminado correctamente.');
+        } else {
+            return redirect()->back()->withErrors('No se elimino correctamente la persona:' . $personas->getMessage());
+        }
     }
 }
