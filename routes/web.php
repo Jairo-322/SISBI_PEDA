@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\PersonaController;
 use App\Http\Controllers\Admin\ProgramaController;
 use App\Http\Controllers\Admin\AutorController;
 use App\Http\Controllers\Admin\CategoriaController;
+use App\Http\Controllers\Admin\LibroController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -56,6 +57,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::post('Categoria',[CategoriaController::class, 'store'])->name('categoria.store');
     Route::put('Categoria/{id}',[CategoriaController::class, 'update'])->name('categoria.update');
     Route::delete('Categoria/{id}',[CategoriaController::class, 'destroy'])->name('categoria.destroy');
+    //LIBRO
+    Route::get('libro',[LibroController::class,'index'])->name('libro.index');
+    Route::post('libro',[LibroController::class, 'store'])->name('libro.store');
+    Route::put('libro/{id}',[LibroController::class, 'update'])->name('libro.update');
+    Route::delete('libro/{id}',[LibroController::class, 'destroy'])->name('libro.destroy');
 });
 
 require __DIR__.'/auth.php';

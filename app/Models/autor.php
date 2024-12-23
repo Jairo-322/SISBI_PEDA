@@ -19,4 +19,8 @@ class autor extends Model
     {
         return $this->belongsTo(nacionalidad::class);
     }
+
+    public function libros(){
+        return $this -> hasMany(libro::class);
+    }
 }

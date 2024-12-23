@@ -11,4 +11,7 @@ class categoria extends Model
         'nombre_categoria',
         'descripcion',
     ];
+    public function libros(){
+        return $this->hasMany(libro::class);
+    }
 }

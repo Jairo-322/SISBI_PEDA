@@ -13,7 +13,7 @@ class EditorialController extends Controller
      */
     public function index()
     {
-        return view ('admin.editorial.index');
+        return view('admin.editorial.index');
     }
 
     /**

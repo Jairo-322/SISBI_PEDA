@@ -328,7 +328,7 @@ return [
         ],
         [
             'text' => 'Libros',
-            'route' => '',
+            'route' => 'admin.libro.index',
             'icon' => 'fas fa-book-open',
         ],
         [

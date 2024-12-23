@@ -5,14 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class LibroController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function render()
+    public function index()
     {
-        return view('admin.home.index');
+        return view('admin.libro.index');
     }
 
     /**
@@ -28,7 +28,7 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**

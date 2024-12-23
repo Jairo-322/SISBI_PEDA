@@ -10,4 +10,10 @@ class editorial extends Model
     protected $fillable = [
         'nombre_editorial'
     ];
+
+    public function libros()
+    {
+        return $this->hasMany(libro::class);
+    }
+
 }

@@ -14,7 +14,7 @@ class NacionalidadController extends Controller
 
     public function index()
     {
-        return view ('admin.nacionalidad.index');
+        return view('admin.nacionalidad.index');
     }
 
     /**
