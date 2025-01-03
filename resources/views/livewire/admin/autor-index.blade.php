@@ -18,7 +18,7 @@
     </script>
     @endif
     <!-- formulario -->
-    <div class="card card-info">
+    <div class="card card-danger">
     <div class="card-header">
         <h3 class="card-title">
             <i class="fas fa-edit mr-2"></i>
@@ -43,8 +43,8 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="nacionalida_id">Nacionalidad</label>
-                        <select class="form-control" name="nacionalida_id" id="nacionalida_id">
+                        <label for="nacionalidad_id">Nacionalidad</label>
+                        <select class="form-control" name="nacionalidad_id" id="nacionalidad_id">
                             @foreach ($nacionalidad as $nacionalidades)
                                 <option value="{{ $nacionalidades->id }}">{{ $nacionalidades->nacionalidad }}</option>
                             @endforeach
@@ -58,7 +58,7 @@
         </form>
     </div>
     </div>
-    <div class="card card-info card-outline">
+    <div class="card card-danger card-outline">
         <div class="card-header">
             <h3 class="card-title text-center">
                 <i class="fas fa-table mr-2"></i>
@@ -71,56 +71,72 @@
                     <tr>
                         <th>Id</th>
                         <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Nacionalidad</th>
                         <th>Editar</th>
                         <th>Eliminar</th>
                     </tr>
                 </thead>
-                {{-- <tbody>
-                    @foreach ($editorial as $editoriales)
+                <tbody>
+                    @foreach ($autor as $autores)
                         <tr>
-                            <td>{{ $editoriales->id }}</td>
-                            <td>{{ $editoriales->nombres }}</td>
+                            <td>{{ $autores->id }}</td>
+                            <td>{{ $autores->nombres }}</td>
+                            <td>{{ $autores->apellidos }}</td>
+                            <td>{{ $autores->nacionalidad->nacionalidad }}</td>
                             <td width="10px">
-                                <a href="" class="btn btn-warning" data-toggle="modal" data-target="#editModal{{ $editoriales->id }}"><i class="fas fa-edit"></i></a>
+                                <a href="" class="btn btn-warning" data-toggle="modal" data-target="#editModal{{ $autores->id }}"><i class="fas fa-edit"></i></a>
                             </td>
                             <td width="10px">
-                                <form action="{{ route('admin.editorial.destroy', $editoriales->id) }}" method="POST" class="delete-form">
+                                <form action="{{ route('admin.autor.destroy', $autores->id) }}" method="POST" class="delete-form">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-delete"><i class="fas fa-trash"></i></button>
                                 </form>
                             </td>
                         </tr>
-                        <!-- Modal de edición -->
-                        <div class="modal fade" id="editModal{{ $editoriales->id }}" tabindex="-1" role="dialog" aria-labelledby="editModal{{ $editoriales->id }}Label" aria-hidden="true">
+                    @endforeach
+                    <!-- Modal de edición -->
+                    @foreach ($autor as $autores)
+                        <div class="modal fade" id="editModal{{ $autores->id }}" tabindex="-1" role="dialog" aria-labelledby="editModal{{ $autores->id }}Label" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="editModal{{ $editoriales->id }}Label">Editar editorial</h5>
+                                        <h5 class="modal-title" id="editModal{{ $autores->id }}Label">Editar autor</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                     </div>
-                                    <form action="{{ route('admin.editorial.update', $editoriales->id) }}"
+                                    <form action="{{ route('admin.autor.update', $autores->id) }}"
                                         method="POST" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
                                         <div class="modal-body">
                                             <!-- Campos del formulario de edición -->
                                             <div class="form-group">
-                                                <label for="nombres{{ $editoriales->id }}">nombres</label>
-                                                <input type="text" class="form-control" name="nombres" id="nombres{{ $editoriales->id }}" value="{{ $editoriales->nombres}}">
+                                                <label for="nombres">Nombres</label>
+                                                <input type="text" class="form-control" name="nombres" id="nombres" value="{{ $autores->nombres}}" oninput="this.value = this.value.toUpperCase();">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="apellidos">Apellidos</label>
+                                                <input type="text" class="form-control" name="apellidos" id="apellidos" value="{{ $autores->apellidos}}" oninput="this.value = this.value.toUpperCase();">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="nacionalidad_id">Nacionalidad</label>
+                                                <select class="form-control" name="nacionalidad_id" id="nacionalidad_id">
+                                                    @foreach ($nacionalidad as $nacionalidades)
+                                                        <option value="{{ $nacionalidades->id }}">{{ $nacionalidades->nacionalidad }}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-danger"
-                                                data-dismiss="modal">Cerrar</button>
-                                            <button type="submit" class="btn btn-info active">Guardar</button>
+                                            <button type="submit" class="btn btn-danger active">Actualizar</button>
                                         </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     @endforeach
-                </tbody> --}}
+                </tbody>
             </table>
         </div>
     </div>

@@ -40,6 +40,11 @@ class AutorController extends Controller
         $autor->apellidos=$validatedData['apellidos'];
         $autor->nacionalidad_id=$validatedData['nacionalidad_id'];
         $autor->save();
+        if($autor){
+            return redirect()->route('admin.autor.index')->with('success', 'El autor fue creado correctamente.');
+        } else {
+            return redirect()->back()->withErrors('No se creo correctamente el autor:' . $autor->getMessage());
+        }
     }
 
     /**

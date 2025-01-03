@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>BIBLIOTECA </b>',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -196,9 +196,8 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
-    'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-white navbar-light',
+    'classes_sidebar' => 'sidebar-dark-red elevation-4', //CAMBIAR EL COLOR DE LOS SELECTORES DEL MENU
+    'classes_topnav' => 'navbar-red navbar-light', //CAMBIAR EL COLOR DE LA CABECERA
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
 
@@ -332,35 +331,42 @@ return [
             'icon' => 'fas fa-book-open',
         ],
         [
-            'text' => 'Carrera Profesional',
-            'route' => 'admin.programa.index',
-            'icon' => 'fas fa-graduation-cap',
-        ],
-        [
-            'text' => 'Personas',
-            'route' => 'admin.persona.index',
-            'icon' => 'fas fa-users',
-        ],
-        [
-            'text' => 'Nacionalidades',
-            'route' => 'admin.nacionalidad.index',
-            'icon' => 'fas fa-users',
-        ],
-        [
-            'text' => 'Editoriales',
-            'route' => 'admin.editorial.index',
-            'icon' => 'fas fa-users',
-        ],
-        [
-            'text' => 'Autores',
-            'route' => 'admin.autor.index',
-            'icon' => 'fas fa-users',
-        ],
-        [
-            'text' =>'Categorias',
-            'route'=>'admin.categoria.index',
-            'icon'=>'fas fa-users'
-        ],
+            'text'=>'Configuraciones',
+            'icon'=>'fas fa-cogs',
+            'submenu'=>[
+                [
+                    'text' => 'Carrera Profesional',
+                    'route' => 'admin.programa.index',
+                    'icon' => 'fas fa-graduation-cap',
+                ],
+                [
+                    'text' => 'Personas',
+                    'route' => 'admin.persona.index',
+                    'icon' => 'fas fa-users',
+                ],
+                [
+                    'text' => 'Nacionalidades',
+                    'route' => 'admin.nacionalidad.index',
+                    'icon' => 'fas fa-users',
+                ],
+                [
+                    'text' => 'Editoriales',
+                    'route' => 'admin.editorial.index',
+                    'icon' => 'fas fa-users',
+                ],
+                [
+                    'text' => 'Autores',
+                    'route' => 'admin.autor.index',
+                    'icon' => 'fas fa-users',
+                ],
+                [
+                    'text' =>'Categorias',
+                    'route'=>'admin.categoria.index',
+                    'icon'=>'fas fa-users'
+                ],
+            ]
+        ]
+
         // [
         // 'text' => 'Configuraciones',
         // 'icon' => 'fas fa-cog',

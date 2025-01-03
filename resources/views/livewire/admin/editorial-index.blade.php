@@ -18,7 +18,7 @@
     </script>
     @endif
     <!-- formulario -->
-    <div class="card card-info">
+    <div class="card card-danger">
     <div class="card-header">
         <h3 class="card-title">
             <i class="fas fa-edit mr-2"></i>
@@ -42,7 +42,7 @@
         </form>
     </div>
     </div>
-    <div class="card card-info card-outline">
+    <div class="card card-danger card-outline">
         <div class="card-header">
             <h3 class="card-title text-center">
                 <i class="fas fa-table mr-2"></i>
@@ -97,7 +97,7 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-danger"
                                                 data-dismiss="modal">Cerrar</button>
-                                            <button type="submit" class="btn btn-info active">Guardar</button>
+                                            <button type="submit" class="btn btn-danger active">Guardar</button>
                                         </div>
                                     </form>
                                 </div>
